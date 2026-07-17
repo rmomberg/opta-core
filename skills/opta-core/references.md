@@ -1,15 +1,18 @@
 # opta-core skill references
 
+Harness-agnostic companion notes for `skills/opta-core/SKILL.md`.
+
 ## Library entry
 
 - Package: `opta-core` (MIT, TypeScript ESM)
 - Repo: https://github.com/rmomberg/opta-core
-- Local default: `/Users/rafaelmomberg/TechDevelopment/mini-apps/opta-core`
+- Resolve root by `package.json` name `opta-core` (do not hardcode machine paths)
 - Public API: `src/index.ts` → `dist/index.js`
 
 ## CLI
 
 - `scripts/calc.mjs` — only approved number source for this skill
+- Alias: `npm run calc -- <command> ...`
 - Requires `npm run build` so `dist/` exists
 
 ## OptionLeg shape (for mc / payoff)
@@ -32,5 +35,5 @@
 
 ## Related but private
 
-- Full Opta app: `optaoptions` / `optaoptions-prod` (Vercel product) — do not open-source via this skill
+- Full Opta product app stays private
 - Power Law engines stay out of opta-core v0.1

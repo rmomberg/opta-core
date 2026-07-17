@@ -132,16 +132,26 @@ npm run calc -- price --S 100 --K 100 --T 1 --r 0.05 --sigma 0.2 --type call
 
 `scripts/calc.mjs` returns JSON. Missing required flags yield `{ "ok": false, "missing": [...] }` so agents can ask for inputs instead of guessing.
 
-## Factory skill
+## Agent skill (harness-agnostic)
 
-This repo ships a Droid skill at `.factory/skills/opta-core/` that answers options questions by calling the CLI only (no freeform numbers). Install personal copy:
+Canonical skill: [`skills/opta-core/`](./skills/opta-core/) (Agent Skills / `SKILL.md` style).
+
+It answers options questions by calling `scripts/calc.mjs` only (no freeform numbers), asks for missing inputs, and suggests starter prompts when the query is empty.
+
+In-repo discovery adapters (symlinks):
+
+- `.agent/skills/opta-core` → `skills/opta-core`
+- `.factory/skills/opta-core` → `skills/opta-core`
+
+Personal install:
 
 ```bash
-mkdir -p ~/.factory/skills/opta-core
-cp .factory/skills/opta-core/* ~/.factory/skills/opta-core/
+mkdir -p ~/.agents/skills ~/.factory/skills
+ln -sfn "$(pwd)/skills/opta-core" ~/.agents/skills/opta-core
+ln -sfn "$(pwd)/skills/opta-core" ~/.factory/skills/opta-core
 ```
 
-Invoke with `/opta-core` or ask an options math question in a session that has the skill available.
+Invoke with `/opta-core` (hosts that support slash skills) or ask an options math question.
 
 ## Development
 
