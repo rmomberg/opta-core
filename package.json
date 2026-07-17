@@ -1,0 +1,55 @@
+{
+  "name": "opta-core",
+  "version": "0.1.0",
+  "description": "Pure TypeScript math for options pricing, multi-leg strategies, and light portfolio Monte Carlo",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "options",
+    "black-scholes",
+    "greeks",
+    "implied-volatility",
+    "monte-carlo",
+    "multi-leg",
+    "quant",
+    "finance"
+  ],
+  "author": "rmomberg",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rmomberg/opta-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rmomberg/opta-core/issues"
+  },
+  "homepage": "https://github.com/rmomberg/opta-core#readme",
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false
+}
