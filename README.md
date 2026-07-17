@@ -122,6 +122,27 @@ Not intended for:
 
 ---
 
+## CLI (agent-friendly)
+
+```bash
+npm run build
+npm run calc -- help
+npm run calc -- price --S 100 --K 100 --T 1 --r 0.05 --sigma 0.2 --type call
+```
+
+`scripts/calc.mjs` returns JSON. Missing required flags yield `{ "ok": false, "missing": [...] }` so agents can ask for inputs instead of guessing.
+
+## Factory skill
+
+This repo ships a Droid skill at `.factory/skills/opta-core/` that answers options questions by calling the CLI only (no freeform numbers). Install personal copy:
+
+```bash
+mkdir -p ~/.factory/skills/opta-core
+cp .factory/skills/opta-core/* ~/.factory/skills/opta-core/
+```
+
+Invoke with `/opta-core` or ask an options math question in a session that has the skill available.
+
 ## Development
 
 ```bash
